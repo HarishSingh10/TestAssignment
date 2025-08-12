@@ -4,9 +4,10 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Linkedin } from "lucide-react"
+import React, { useState, useEffect, useRef } from 'react';
 
 
-
+ 
 const timeline = [
   {
     year: "2020",
@@ -36,13 +37,40 @@ const timeline = [
 ]
 
 export default function AboutPage() {
+   const [visibleItems, setVisibleItems] = useState(new Set());
+  const observerRef = useRef(null);
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.dataset.index);
+            setVisibleItems(prev => new Set([...prev, index]));
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach(item => {
+      observerRef.current.observe(item);
+    });
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
           <h1 className="text-4xl md:text-5xl font-bold  mb-6 text-black-900">About Zenbourg</h1>
-          <p className="text-xl text-black max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-black max-w-3xl mx-auto mb-8 ">
             We're a team of passionate experts dedicated to transforming businesses through innovative digital
             solutions. Our mission is to empower companies to thrive in the digital age with cutting-edge technology and
             strategic thinking.
@@ -127,45 +155,120 @@ export default function AboutPage() {
       </section>
 
       {/* Company Timeline */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Journey</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              From our founding to today, we've been on an exciting path of growth and innovation.
-            </p>
-          </div>
+       <section className="py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Journey</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            From our founding to today, we've been on an exciting path of growth and innovation.
+          </p>
+        </div>
 
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-200"></div>
+        <div className="relative">
+          {/* Timeline Line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-200"></div>
+          
+          {/* Animated Progress Line */}
+          <div 
+            className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-blue-600 to-blue-400 transition-all duration-2000 ease-out"
+            style={{
+              height: `${(visibleItems.size / timeline.length) * 100}%`
+            }}
+          ></div>
 
-            <div className="space-y-12">
-              {timeline.map((item, index) => (
-                <div key={index} className="relative">
-                  <div
-                    className={`flex items-center justify-${index % 2 === 0 ? "end" : "start"} md:justify-center mb-6`}
+          <div className="space-y-12">
+            {timeline.map((item, index) => (
+              <div 
+                key={index} 
+                className="timeline-item relative"
+                data-index={index}
+              >
+                {/* Year Badge - Always Centered */}
+                <div className="flex items-center justify-center mb-6 relative z-10">
+                  <div 
+                    className={`bg-blue-600 text-white px-4 py-2 rounded-full font-bold relative transition-all duration-700 transform ${
+                      visibleItems.has(index) 
+                        ? 'scale-100 opacity-100' 
+                        : 'scale-75 opacity-0'
+                    }`}
+                    style={{
+                      transitionDelay: `${index * 150}ms`
+                    }}
                   >
-                    <div className="bg-blue-600 text-white px-4 py-2 rounded-full font-bold">{item.year}</div>
-                  </div>
-
-                  <div
-                    className={`flex flex-col md:flex-row ${index % 2 === 0 ? "md:flex-row-reverse" : ""} items-center`}
-                  >
-                    <div className="md:w-1/2 p-4"></div>
-                    <div className="md:w-1/2 p-4">
-                      <div className="bg-white p-6 rounded-lg shadow-md">
-                        <h3 className="font-bold text-xl mb-2">{item.title}</h3>
-                        <p className="text-gray-600">{item.description}</p>
-                      </div>
-                    </div>
+                    {item.year}
+                    {/* Pulse animation for visible items */}
+                    {visibleItems.has(index) && (
+                      <div className="absolute inset-0 bg-blue-600 rounded-full animate-ping opacity-75"></div>
+                    )}
                   </div>
                 </div>
-              ))}
-            </div>
+
+                {/* Content Card - Alternating Sides */}
+                <div className="relative flex items-center">
+                  {/* Left side content for even items */}
+                  <div className={`w-full md:w-1/2 p-4 ${index % 2 === 0 ? '' : 'md:opacity-0 md:pointer-events-none'}`}>
+                    {index % 2 === 0 && (
+                      <div 
+                        className={`bg-white p-6 rounded-lg shadow-md transition-all duration-700 transform hover:shadow-xl md:text-right ${
+                          visibleItems.has(index) 
+                            ? 'translate-y-0 opacity-100' 
+                            : '-translate-x-8 opacity-0'
+                        }`}
+                        style={{
+                          transitionDelay: `${index * 150 + 200}ms`
+                        }}
+                      >
+                        <h3 className="font-bold text-xl mb-2 text-gray-900">{item.title}</h3>
+                        <p className="text-gray-600">{item.description}</p>
+                        
+                        {/* Subtle accent line */}
+                        <div 
+                          className={`h-1 bg-blue-600 rounded-full mt-4 transition-all duration-500 ml-auto ${
+                            visibleItems.has(index) ? 'w-12' : 'w-0'
+                          }`}
+                          style={{
+                            transitionDelay: `${index * 150 + 400}ms`
+                          }}
+                        ></div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Right side content for odd items */}
+                  <div className={`w-full md:w-1/2 p-4 ${index % 2 === 1 ? '' : 'md:opacity-0 md:pointer-events-none'}`}>
+                    {index % 2 === 1 && (
+                      <div 
+                        className={`bg-white p-6 rounded-lg shadow-md transition-all duration-700 transform hover:shadow-xl md:text-left ${
+                          visibleItems.has(index) 
+                            ? 'translate-y-0 opacity-100' 
+                            : 'translate-x-8 opacity-0'
+                        }`}
+                        style={{
+                          transitionDelay: `${index * 150 + 200}ms`
+                        }}
+                      >
+                        <h3 className="font-bold text-xl mb-2 text-gray-900">{item.title}</h3>
+                        <p className="text-gray-600">{item.description}</p>
+                        
+                        {/* Subtle accent line */}
+                        <div 
+                          className={`h-1 bg-blue-600 rounded-full mt-4 transition-all duration-500 ${
+                            visibleItems.has(index) ? 'w-12' : 'w-0'
+                          }`}
+                          style={{
+                            transitionDelay: `${index * 150 + 400}ms`
+                          }}
+                        ></div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Values */}
     <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-600 text-white relative z-10">
