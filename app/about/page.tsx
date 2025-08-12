@@ -4,7 +4,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Linkedin } from "lucide-react"
-import { motion } from "framer-motion"
+
 
 
 const timeline = [
@@ -39,10 +39,10 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Zenbourg</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
+          <h1 className="text-4xl md:text-5xl font-bold  mb-6 text-black-900">About Zenbourg</h1>
+          <p className="text-xl text-black max-w-3xl mx-auto mb-8">
             We're a team of passionate experts dedicated to transforming businesses through innovative digital
             solutions. Our mission is to empower companies to thrive in the digital age with cutting-edge technology and
             strategic thinking.
@@ -89,33 +89,33 @@ export default function AboutPage() {
       </section>
 
       {/* Founder Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-slate-900 text-gray-300 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet Our Founder</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-white mb-4">Meet Our Founder</h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               Leading Zenbourg with vision, innovation, and technical excellence from one of India's premier
               institutions.
             </p>
           </div>
 
           <div className="flex justify-center">
-            <Card className="overflow-hidden max-w-md">
+            <Card className="overflow-hidden max-w-md bg-slate-800">
               <div className="aspect-square relative">
                 <Image src="/placeholder.svg?height=400&width=400" alt="Mayank Bhayal" fill className="object-cover" />
               </div>
               <CardContent className="p-8 text-center">
-                <h3 className="font-bold text-2xl mb-2">Mayank Bhayal</h3>
-                <p className="text-blue-600 font-semibold mb-2">CEO & Founder</p>
-                <p className="text-gray-600 mb-4">IIT Mandi Alumni</p>
-                <p className="text-gray-600 text-sm mb-6">
+                <h3 className="font-bold text-2xl mb-2 text-white">Mayank Bhayal</h3>
+                <p className="text-blue-400 font-semibold mb-2">CEO & Founder</p>
+                <p className="text-gray-400 mb-4">IIT Mandi Alumni</p>
+                <p className="text-gray-400 text-sm mb-6">
                   Visionary leader with expertise in digital transformation and cutting-edge technology solutions.
                   Passionate about empowering businesses to achieve exponential growth through innovative digital
                   strategies.
                 </p>
                 <Link
                   href="https://www.linkedin.com/in/mayank-bhayal-5a7123202/"
-                  className="text-blue-600 hover:text-blue-800 inline-flex items-center gap-2"
+                  className="text-blue-400 hover:text-blue-300 inline-flex items-center gap-2"
                 >
                   <Linkedin className="h-5 w-5" />
                   <span>Connect on LinkedIn</span>
@@ -168,45 +168,45 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-blue-600 text-white">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-16">
-      <h2 className="text-3xl font-bold mb-4">Our Values</h2>
-      <p className="text-xl opacity-90 max-w-2xl mx-auto">
-        These core principles guide everything we do at Zenbourg.
-      </p>
-    </div>
+    <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-600 text-white relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Our Values</h2>
+            <p className="text-xl opacity-90 max-w-2xl mx-auto">
+              These core principles guide everything we do at Zenbourg.
+            </p>
+          </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {/* Card 1 */}
-      <div className="bg-blue-700 p-8 rounded-lg transition-colors duration-300 hover:bg-blue-800 cursor-pointer">
-        <h3 className="font-bold text-xl mb-4">Innovation</h3>
-        <p className="opacity-90">
-          We constantly explore new technologies and approaches to deliver cutting-edge solutions that keep our
-          clients ahead of the curve.
-        </p>
-      </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <div className="bg-blue-700 p-8 rounded-lg transition-colors duration-300 hover:bg-blue-800 cursor-pointer">
+              <h3 className="font-bold text-xl mb-4">Innovation</h3>
+              <p className="opacity-90">
+                We constantly explore new technologies and approaches to deliver cutting-edge solutions that keep our
+                clients ahead of the curve.
+              </p>
+            </div>
 
-      {/* Card 2 */}
-      <div className="bg-blue-700 p-8 rounded-lg transition-colors duration-300 hover:bg-blue-800 cursor-pointer">
-        <h3 className="font-bold text-xl mb-4">Excellence</h3>
-        <p className="opacity-90">
-          We hold ourselves to the highest standards in everything we do, from code quality to client
-          communication.
-        </p>
-      </div>
+            {/* Card 2 */}
+            <div className="bg-blue-700 p-8 rounded-lg transition-colors duration-300 hover:bg-blue-800 cursor-pointer">
+              <h3 className="font-bold text-xl mb-4">Excellence</h3>
+              <p className="opacity-90">
+                We hold ourselves to the highest standards in everything we do, from code quality to client
+                communication.
+              </p>
+            </div>
 
-      {/* Card 3 */}
-      <div className="bg-blue-700 p-8 rounded-lg transition-colors duration-300 hover:bg-blue-800 cursor-pointer">
-        <h3 className="font-bold text-xl mb-4">Client Success</h3>
-        <p className="opacity-90">
-          We measure our success by the results we deliver for our clients. Their growth and satisfaction are our
-          top priorities.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+            {/* Card 3 */}
+            <div className="bg-blue-700 p-8 rounded-lg transition-colors duration-300 hover:bg-blue-800 cursor-pointer">
+              <h3 className="font-bold text-xl mb-4">Client Success</h3>
+              <p className="opacity-90">
+                We measure our success by the results we deliver for our clients. Their growth and satisfaction are our
+                top priorities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="py-20">

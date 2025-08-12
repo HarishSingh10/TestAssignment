@@ -80,14 +80,14 @@ class ApiClient {
   // Contacts
   async createContact(data: any) {
     
-    return this.request("/api/contact", {
+    return this.request("/contacts", {
       method: "POST",
       body: JSON.stringify(data),
     })
   }
 
   async getContacts() {
-    return this.request("/api/contact")
+    return this.request("/contacts")
   }
 
   // Services
