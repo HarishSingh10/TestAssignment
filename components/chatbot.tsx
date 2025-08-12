@@ -132,7 +132,7 @@ export default function ChatBot() {
     options?: string[],
   ) => {
     const newMessage: Message = {
-      id: Date.now().toString(),
+      id: `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
       text,
       isUser,
       timestamp: new Date(),
@@ -415,10 +415,10 @@ export default function ChatBot() {
                   </div>
                   <div>
                     <CardTitle className="text-base sm:text-lg font-bold">Zenbourg Assistant</CardTitle>
-                    <p className="text-xs text-blue-100 flex items-center">
+                    <div className="text-xs text-blue-100 flex items-center">
                       <div className="h-1.5 w-1.5 sm:h-2 sm:w-2 bg-green-400 rounded-full mr-1 sm:mr-2 animate-pulse"></div>
                       Online • Ready to help
-                    </p>
+                    </div>
                   </div>
                 </div>
                 <Button
