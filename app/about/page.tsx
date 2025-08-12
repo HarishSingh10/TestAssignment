@@ -1,8 +1,11 @@
+"use client"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Linkedin } from "lucide-react"
+import { motion } from "framer-motion"
+
 
 const timeline = [
   {
@@ -166,39 +169,44 @@ export default function AboutPage() {
 
       {/* Values */}
       <section className="py-20 bg-blue-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Our Values</h2>
-            <p className="text-xl opacity-90 max-w-2xl mx-auto">
-              These core principles guide everything we do at Zenbourg.
-            </p>
-          </div>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl font-bold mb-4">Our Values</h2>
+      <p className="text-xl opacity-90 max-w-2xl mx-auto">
+        These core principles guide everything we do at Zenbourg.
+      </p>
+    </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-blue-700 p-8 rounded-lg">
-              <h3 className="font-bold text-xl mb-4">Innovation</h3>
-              <p className="opacity-90">
-                We constantly explore new technologies and approaches to deliver cutting-edge solutions that keep our
-                clients ahead of the curve.
-              </p>
-            </div>
-            <div className="bg-blue-700 p-8 rounded-lg">
-              <h3 className="font-bold text-xl mb-4">Excellence</h3>
-              <p className="opacity-90">
-                We hold ourselves to the highest standards in everything we do, from code quality to client
-                communication.
-              </p>
-            </div>
-            <div className="bg-blue-700 p-8 rounded-lg">
-              <h3 className="font-bold text-xl mb-4">Client Success</h3>
-              <p className="opacity-90">
-                We measure our success by the results we deliver for our clients. Their growth and satisfaction are our
-                top priorities.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Card 1 */}
+      <div className="bg-blue-700 p-8 rounded-lg transition-colors duration-300 hover:bg-blue-800 cursor-pointer">
+        <h3 className="font-bold text-xl mb-4">Innovation</h3>
+        <p className="opacity-90">
+          We constantly explore new technologies and approaches to deliver cutting-edge solutions that keep our
+          clients ahead of the curve.
+        </p>
+      </div>
+
+      {/* Card 2 */}
+      <div className="bg-blue-700 p-8 rounded-lg transition-colors duration-300 hover:bg-blue-800 cursor-pointer">
+        <h3 className="font-bold text-xl mb-4">Excellence</h3>
+        <p className="opacity-90">
+          We hold ourselves to the highest standards in everything we do, from code quality to client
+          communication.
+        </p>
+      </div>
+
+      {/* Card 3 */}
+      <div className="bg-blue-700 p-8 rounded-lg transition-colors duration-300 hover:bg-blue-800 cursor-pointer">
+        <h3 className="font-bold text-xl mb-4">Client Success</h3>
+        <p className="opacity-90">
+          We measure our success by the results we deliver for our clients. Their growth and satisfaction are our
+          top priorities.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* CTA */}
       <section className="py-20">

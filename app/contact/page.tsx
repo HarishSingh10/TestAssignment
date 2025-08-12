@@ -55,7 +55,7 @@ export default function ContactPage() {
         throw new Error(result.error || "Failed to send message")
       }
     } catch (error) {
-      console.error("Error sending message:", error)
+      
       toast({
         title: "Submission Failed",
         description: "There was an error sending your message. Please try again.",

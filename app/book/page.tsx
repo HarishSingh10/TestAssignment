@@ -281,7 +281,7 @@ export default function BookConsultationPage() {
                           {servicesList.map((service) => (
                             <SelectItem key={service.slug} value={service.slug}>
                               {" "}
-                              {/* Use slug as value */}
+                              
                               {service.name}
                             </SelectItem>
                           ))}
