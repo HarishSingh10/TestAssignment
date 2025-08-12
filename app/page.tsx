@@ -45,10 +45,11 @@ export default async function HomePage() {
   const homeProjects: HomePageProject[] = projectsData || []
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen  ">
       {/* Hero Section (remains static as per current design, or can be made dynamic too) */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-black py-12 sm:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="hero-section relative bg-gradient-to-br from-blue-50 to-indigo-100 py-12 sm:py-16 lg:py-20 ">
+        <div className=" relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
               Premium Business Services for
@@ -80,11 +81,14 @@ export default async function HomePage() {
             </div>
           </div>
         </div>
+
+        </div>
+        
       </section>
 
       {/* Features Section - Dynamic */}
       {features.length > 0 && (
-        <section className="py-12 sm:py-16 lg:py-20 bg-white dark:bg-gray-900">
+        <section className="py-12 sm:py-16 lg:py-20  ">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -98,13 +102,13 @@ export default async function HomePage() {
               {features.map((feature) => (
                 <Card
                   key={feature.id}
-                  className="text-center p-4 sm:p-6 hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+                  className="text-center p-4 sm:p-6 hover:shadow-lg transition-shadow  "
                 >
                   <CardContent className="pt-4 sm:pt-6">
                     <div className="flex justify-center mb-3 sm:mb-4">
                       <FeatureIcon name={feature.icon_name} className="h-6 w-6 sm:h-8 sm:w-8 text-blue-500" />
                     </div>
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2 ">
                       {feature.title}
                     </h3>
                     <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{feature.description}</p>
@@ -118,7 +122,7 @@ export default async function HomePage() {
 
       {/* Our Services Section - Dynamic */}
       {homeServices.length > 0 && (
-        <section className="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-gray-800">
+        <section className="py-12 sm:py-16 lg:py-20 bg-gray-50/50 dark:bg-slate-800/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -133,17 +137,17 @@ export default async function HomePage() {
               {homeServices.map((service) => (
                 <Card
                   key={service.id}
-                  className={`relative hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 ${
+                  className={`relative hover:shadow-lg transition-shadow     ${
                     service.is_popular ? "ring-2 ring-blue-500" : ""
                   }`}
                 >
                   {service.is_popular && (
-                    <Badge className="absolute -top-2 left-4 bg-blue-500 text-white text-xs sm:text-sm">
+                    <Badge className="absolute -top-2 left-4 bg-blue-500 text-xs sm:text-sm">
                       Most Popular
                     </Badge>
                   )}
                   <CardContent className="p-4 sm:p-6">
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2 ">
                       {service.name}
                     </h3>
                     {service.price && (
@@ -151,18 +155,18 @@ export default async function HomePage() {
                         ${service.price.toLocaleString()}
                       </div>
                     )}
-                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4">{service.description}</p>
+                    <p className="text-sm sm:text-base text-gray-600 mb-4">{service.description}</p>
                     {service.features && service.features.length > 0 && (
                       <ul className="space-y-1 sm:space-y-2 mb-4 sm:mb-6">
                         {service.features.map((featureItem, index) => (
                           <li key={index} className="flex items-center space-x-2">
                             <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-green-500 flex-shrink-0" />
-                            <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">{featureItem}</span>
+                            <span className="text-xs sm:text-sm text-gray-600 ">{featureItem}</span>
                           </li>
                         ))}
                       </ul>
                     )}
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base" asChild>
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700  text-sm sm:text-base" asChild>
                       <Link href={`/services#${service.service_slug}`}>
                         Book Now
                         <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
@@ -186,7 +190,7 @@ export default async function HomePage() {
 
       {/* Testimonials - Dynamic */}
       {testimonials.length > 0 && (
-        <section className="py-12 sm:py-16 lg:py-20 bg-white dark:bg-gray-900">
+        <section className="py-12 sm:py-16 lg:py-20 ">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -200,7 +204,7 @@ export default async function HomePage() {
               {testimonials.map((testimonial) => (
                 <Card
                   key={testimonial.id}
-                  className="p-4 sm:p-6 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+                  className="p-4 sm:p-6 "
                 >
                   <CardContent className="pt-4 sm:pt-6">
                     <div className="flex mb-3 sm:mb-4">
@@ -210,15 +214,15 @@ export default async function HomePage() {
                       {[...Array(5 - testimonial.rating)].map((_, i) => (
                         <Star
                           key={`empty-${i}`}
-                          className="h-4 w-4 sm:h-5 sm:w-5 text-gray-300 dark:text-gray-600 fill-current"
+                          className="h-4 w-4 sm:h-5 sm:w-5 fill-current"
                         />
                       ))}
                     </div>
-                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-3 sm:mb-4">
+                    <p className="text-sm sm:text-base mb-3 sm:mb-4">
                       "{testimonial.text}"
                     </p>
                     <div>
-                      <p className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white">
+                      <p className="font-semibold text-sm sm:text-base  dark:text-white">
                         {testimonial.name}
                       </p>
                       {testimonial.company && (
@@ -235,7 +239,7 @@ export default async function HomePage() {
 
       {/* Our Work Section - Dynamic */}
       {homeProjects.length > 0 && (
-        <section className="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-gray-800">
+        <section className="py-12 sm:py-16 lg:py-20 bg-gray-50/50 dark:bg-slate-800/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -249,7 +253,7 @@ export default async function HomePage() {
               {homeProjects.map((project) => (
                 <Card
                   key={project.id}
-                  className="group hover:shadow-xl transition-all duration-300 overflow-hidden bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+                  className="group hover:shadow-xl transition-all duration-300 overflow-hidden "
                 >
                   <div className="relative">
                     <Image
@@ -328,7 +332,7 @@ export default async function HomePage() {
       )}
 
       {/* CTA Section (remains static or can be made dynamic) */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-blue-600 dark:bg-blue-800 text-white">
+      <section className="py-12 sm:py-16 lg:py-20 bg-blue-600 dark:bg-blue-800 text-white transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Business?</h2>
           <p className="text-lg sm:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto px-4">

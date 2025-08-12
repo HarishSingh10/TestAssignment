@@ -47,17 +47,18 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
+
+  /* The one and only universal transition rule */
+  * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    @apply duration-300 ease-in-out;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground transition-all duration-500;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-}
 
 @layer components {
   /* Premium Dark Theme Styles */
@@ -410,6 +411,23 @@
     );
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
+  }
+  .hero-section::before {
+    content: "";
+    
+    /* HERE IS YOUR DARK THEME GRADIENT! */
+    @apply absolute inset-0 z-0 bg-gradient-to-br from-gray-900 to-black;
+    
+    /* It's hidden by default (in light mode) */
+    @apply opacity-0;
+    
+    /* It's set to transition its opacity smoothly */
+    @apply transition-opacity duration-500 ease-in-out;
+  }
+
+  /* When dark mode is active, this rule fades the dark layer in */
+  .dark .hero-section::before {
+    @apply opacity-100;
   }
 }
 
