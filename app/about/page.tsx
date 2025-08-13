@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Linkedin } from "lucide-react"
 import React, { useState, useEffect, useRef } from 'react';
+import { text } from "stream/consumers"
 
 
  
@@ -70,6 +71,7 @@ export default function AboutPage() {
       <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
           <h1 className="text-4xl md:text-5xl font-bold  mb-6 text-black-900">About Zenbourg</h1>
+          
           <p className="text-xl text-black max-w-3xl mx-auto mb-8 ">
             We're a team of passionate experts dedicated to transforming businesses through innovative digital
             solutions. Our mission is to empower companies to thrive in the digital age with cutting-edge technology and

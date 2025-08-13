@@ -44,7 +44,7 @@ export default function Footer() {
                 href="/web-development"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
+                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base w-[150px]"
               >
                 Web Development
               </Link>
@@ -52,7 +52,7 @@ export default function Footer() {
                 href="/digital-marketing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
+                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base w-[130px]"
               >
                 Digital Marketing
               </Link>
@@ -60,7 +60,7 @@ export default function Footer() {
                 href="/custom-solutions"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
+                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base w-[150px]"
               >
                 Custom Solutions
               </Link>
@@ -68,7 +68,7 @@ export default function Footer() {
                 href="/services"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
+                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base w-[130px]"
               >
                 Consulting
               </Link>
@@ -83,7 +83,7 @@ export default function Footer() {
                 href="/privacy-policy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
+                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base w-[130px]"
               >
                 Privacy Policy
               </Link>
@@ -91,7 +91,7 @@ export default function Footer() {
                 href="/terms-of-service"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
+                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base w-[130px]"
               >
                 Terms of Service
               </Link>
@@ -99,7 +99,7 @@ export default function Footer() {
                 href="/refund-policy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
+                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base w-[130px]"
               >
                 Refund Policy
               </Link>
@@ -107,7 +107,7 @@ export default function Footer() {
                 href="/cookie-policy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
+                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base w-[130px]"
               >
                 Cookie Policy
               </Link>
@@ -115,7 +115,7 @@ export default function Footer() {
                 href="/disclaimer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
+                className="block text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base w-[130px]"
               >
                 Disclaimer
               </Link>
