@@ -94,7 +94,7 @@ export default async function HomePage() {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Why Choose Zenbourg?
               </h2>
-              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
+              <p className="text-lg sm:text-xl  max-w-2xl mx-auto px-4">
                 We combine expertise, innovation, and dedication to deliver exceptional results for your business.
               </p>
             </div>
@@ -125,10 +125,10 @@ export default async function HomePage() {
         <section className="py-12 sm:py-16 lg:py-20 bg-gray-50/50 dark:bg-slate-800/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 Our Services
               </h2>
-              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
+              <p className="text-lg sm:text-xl text-gray-600  max-w-2xl mx-auto px-4">
                 Choose from our comprehensive range of professional services designed to help your business grow and
                 succeed.
               </p>
@@ -161,7 +161,7 @@ export default async function HomePage() {
                         {service.features.map((featureItem, index) => (
                           <li key={index} className="flex items-center space-x-2">
                             <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-green-500 flex-shrink-0" />
-                            <span className="text-xs sm:text-sm text-gray-600 ">{featureItem}</span>
+                            <span className="text-xs sm:text-sm ">{featureItem}</span>
                           </li>
                         ))}
                       </ul>

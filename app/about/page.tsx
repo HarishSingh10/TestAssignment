@@ -68,8 +68,9 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 ">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
+      <section className="py-20 hero-section relative bg-gradient-to-br from-blue-50 to-indigo-100  ">
+        <div className="relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
           <h1 className="text-4xl md:text-5xl font-bold  mb-6 text-black-900">About Zenbourg</h1>
           
           <p className="text-xl text-black max-w-3xl mx-auto mb-8 ">
@@ -81,6 +82,9 @@ export default function AboutPage() {
             <Link href="/contact">Get in Touch</Link>
           </Button>
         </div>
+
+        </div>
+        
       </section>
 
       {/* Our Story */}
